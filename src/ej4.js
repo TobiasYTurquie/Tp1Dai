@@ -4,5 +4,6 @@ const ARCHIVO_SALIDA = "./archivo-salida.txt";
 console.clear();
 copiar(ARCHIVO_ENTRADA, ARCHIVO_SALIDA);
 function copiar(origen, destino){
- // No seas vago, acá hay que hacer el cuerpo de la función!!!
+fs.rename(origen, destino, () => {console.log("Rename completado")})
+fs.rename(destino, origen, () => {console.log("Rename completado")})
 }
