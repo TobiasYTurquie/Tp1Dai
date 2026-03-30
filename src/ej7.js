@@ -1,12 +1,12 @@
-import { getCurrency } from ' currency-country-map ' 
+import { getCurrency } from 'country-currency-map' 
 
 let monedaDelPais, codigoPais;
-codigoPais = 'AR';
+codigoPais = 'ARS';
 monedaDelPais = obtenerMoneda(codigoPais);
-console.log(`La moneda del país ${codigoPais} es: ${monedaDelPais}`);
-codigoPais = 'USA';
-monedaDelPais = obtenerMoneda(codigoPais);
-console.log(`La moneda del país ${codigoPais} es: ${monedaDelPais}`);
-function obtenerMoneda(codigoPais){     
+console.log(`La moneda del país ${codigoPais} es: ${monedaDelPais.name}`);
+codigoPais = 'USD';
+monedaDelPais = obtenerMoneda(codigoPais)
+console.log(`La moneda del país ${codigoPais} es: ${monedaDelPais.name}`);
+function obtenerMoneda(codigoPais){
 return getCurrency(codigoPais)
 } 
