@@ -14,27 +14,19 @@ const OMDBSearchByPage = async (searchText, page = 1) => {
         cantidadTotal: apiResponse.data.totalResults,
         datos: apiResponse.data.Search
     };
-    // No seas vago, acá hay que hacer el cuerpo de la función!!!
     return returnObject;
 
 };
 
 
-const OMDBSearchComplete = async (searchText) => {
-
+const OMDBSearchComplete = async (searchText,i) => {
+    const requestString = `http://www.omdbapi.com/?apikey=e9d7420b&s=${searchText}&page=${i}`;
+    const apiResponse = await axios.get(requestString);
     let returnObject = {
-
-        respuesta: false,
-
-        cantidadTotal: 0,
-
-        datos: []
-
-    };
-
-
-    // No seas vago, acá hay que hacer el cuerpo de la función!!!
-
+        respuesta: true,
+        cantidadTotal: apiResponse.data.totalResults,
+        datos: apiResponse.data.Search
+    }
     return returnObject;
 
 };
@@ -42,18 +34,13 @@ const OMDBSearchComplete = async (searchText) => {
 
 const OMDBGetByImdbID = async (imdbID) => {
 
+   const requestString = `https://www.omdbapi.com/?i=${imdbID}&apikey=e9d7420b`;
+    const apiResponse = await axios.get(requestString);
     let returnObject = {
-
-        respuesta: false,
-
-        cantidadTotal: 0,
-
-        datos: {}
-
-    };
-
-    // No seas vago, acá hay que hacer el cuerpo de la función!!!
-
+        respuesta: true,
+        cantidadTotal: apiResponse.data.totalResults,
+        datos: apiResponse.data.Search
+    }
     return returnObject;
 
 };
